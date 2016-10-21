@@ -18,8 +18,10 @@ export default class NewRoom extends Component {
 
   submitNewRoom(e) {
     e.preventDefault();
-    // let nameObj = { name: this.state.}
-    RoomActions.newRoom(this.state.newName)
+    let { newName } = this.state;
+    if (newName) {
+      RoomActions.newRoom(newName)
+    }
   }
 
   render() {

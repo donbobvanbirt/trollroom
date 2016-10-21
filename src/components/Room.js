@@ -39,9 +39,11 @@ export default class Room extends Component {
   submitMessage(e) {
     e.preventDefault();
     let { name, trollMessage, currentRoom } = this.state;
-    if (!name) { name = 'anonymous' }
-    let msgObj = { text: trollMessage, author: name };
-    RoomActions.sendMessage(currentRoom, msgObj)
+    if (trollMessage) {
+      if (!name) { name = 'anonymous' }
+      let msgObj = { text: trollMessage, author: name };
+      RoomActions.sendMessage(currentRoom, msgObj)
+    }
   }
 
   typeName(e) {
@@ -86,7 +88,7 @@ export default class Room extends Component {
                   <Image avatar src='https://craigdodson.files.wordpress.com/2016/03/trollface.png' />
                   <List.Content>
                     <List.Header>{text}</List.Header>
-                    <List.Description>By <b>{author}</b> on {moment(timeCreated).format('dddd h:mm:ss a')}</List.Description>
+                    <List.Description>By <b>{author}</b> on {moment(timeCreated).format('dddd MMM Do [at] h:mm:ss a')}</List.Description>
                   </List.Content>
                 </List.Item>
               )

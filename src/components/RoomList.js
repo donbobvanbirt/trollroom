@@ -52,7 +52,7 @@ export default class RoomList extends Component {
                 <Image avatar src='https://craigdodson.files.wordpress.com/2016/03/trollface.png' />
                 <List.Content>
                   <List.Header as='a' onClick={() => this.selectRoom(_id)}>{name}</List.Header>
-                  <List.Description as='a' onClick={() => this.selectRoom(_id)}>Created {moment(createdAt).format('dddd h:mm:ss a')}</List.Description>
+                  <List.Description as='a' onClick={() => this.selectRoom(_id)}>Created {moment(createdAt).format('dddd [at] h:mm:ss a')}</List.Description>
                 </List.Content>
               </List.Item>
             )
