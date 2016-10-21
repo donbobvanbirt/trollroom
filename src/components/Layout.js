@@ -9,6 +9,7 @@ export default class Layout extends Component {
       activeItem: 'home'
     }
     this.linkHome = this.linkHome.bind(this);
+    this.linkNew = this.linkNew.bind(this);
   }
 
   handleItemClick(name) {
@@ -16,7 +17,13 @@ export default class Layout extends Component {
   }
 
   linkHome() {
+    this.handleItemClick('home')
     browserHistory.push('/')
+  }
+
+  linkNew() {
+    this.handleItemClick('newRoom')
+    browserHistory.push('/new')
   }
 
   render() {
@@ -28,6 +35,7 @@ export default class Layout extends Component {
           <Menu inverted>
             <Menu.Item header>Trollroom</Menu.Item>
             <Menu.Item name='Rooms' active={activeItem === 'home'} onClick={this.linkHome}></Menu.Item>
+            <Menu.Item name='Add New Room' active={activeItem === 'newRoom'} onClick={this.linkNew}></Menu.Item>
           </Menu>
           {this.props.children}
         </Container>

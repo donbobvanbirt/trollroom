@@ -10,7 +10,7 @@ router.route('/message/:id')
     .then(chatroom => {
       let newMessage = req.body;
       newMessage.timeCreated = Date.now();
-      chatroom.messages.push(newMessage);
+      chatroom.messages.unshift(newMessage);
       // console.log('chatroom.messages', chatroom.messages);
       return chatroom.save();
     })
