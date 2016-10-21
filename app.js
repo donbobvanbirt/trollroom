@@ -1,9 +1,10 @@
 // LOAD ENV VARIABLES
-require('dotenv').config();
+require('dotenv').config({ silent: true });
 
 // SET SERVER PORT
-const PORT = process.env.PORT || 8000;
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/totallynewdb';
+const PORT = process.env.PORT || 8080;
+// const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/chatroomdb';
+const MONGODB_URI = 'mongodb://localhost/chatroomdb';
 
 // REQUIRES
 const bodyParser = require('body-parser');

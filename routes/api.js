@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
 
-// connect other routers here!
+router.use('/chatrooms', require('./chatrooms'));
 
 module.exports = router;
