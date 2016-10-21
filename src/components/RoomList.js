@@ -30,6 +30,10 @@ export default class RoomList extends Component {
     })
   }
 
+  selectRoom(id) {
+    browserHistory.push(`/room/${id}`);
+  }
+
   render() {
     console.log('this.state', this.state)
     let { rooms } = this.state;
@@ -46,8 +50,8 @@ export default class RoomList extends Component {
                 {/* <List.Icon name='github' size='large' verticalAlign='middle' /> */}
                 <Image avatar src='https://craigdodson.files.wordpress.com/2016/03/trollface.png' />
                 <List.Content>
-                  <List.Header as='a'>{name}</List.Header>
-                  <List.Description as='a'>Created at {createdAt}</List.Description>
+                  <List.Header as='a' onClick={() => this.selectRoom(_id)}>{name}</List.Header>
+                  <List.Description as='a' onClick={() => this.selectRoom(_id)}>Created at {createdAt}</List.Description>
                 </List.Content>
               </List.Item>
             )

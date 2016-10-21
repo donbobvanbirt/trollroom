@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router'
+import { Link, browserHistory } from 'react-router'
 import { Container, Menu } from 'semantic-ui-react'
 
 export default class Layout extends Component {
@@ -8,10 +8,15 @@ export default class Layout extends Component {
     this.state = {
       activeItem: 'home'
     }
+    this.linkHome = this.linkHome.bind(this);
   }
 
   handleItemClick(name) {
     this.setState({ activeItem: name });
+  }
+
+  linkHome() {
+    browserHistory.push('/')
   }
 
   render() {
@@ -22,7 +27,7 @@ export default class Layout extends Component {
         <Container>
           <Menu inverted>
             <Menu.Item header>Trollroom</Menu.Item>
-            <Menu.Item name='Rooms' active={activeItem === 'home'} link to='/'></Menu.Item>
+            <Menu.Item name='Rooms' active={activeItem === 'home'} onClick={this.linkHome}></Menu.Item>
           </Menu>
           {this.props.children}
         </Container>
