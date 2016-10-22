@@ -13,7 +13,7 @@ export default class NewRoom extends Component {
   }
 
   typeName(e) {
-    this.setState({ newName: e.target.value })
+    this.setState({ newName: e.target.value });
   }
 
   submitNewRoom(e) {

@@ -12,7 +12,7 @@ const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
 const webpack = require('webpack')
-const webpackConfig = require('./webpack.config')
+const webpackConfig = require('../webpack.config')
 const webpackDevMiddleware = require('webpack-dev-middleware')
 const webpackHotMiddleware = require('webpack-hot-middleware')
 
@@ -45,7 +45,7 @@ app.use(webpackHotMiddleware(compiler))
 app.use('/api', require('./routes/api'));
 
 app.use("*", function(req, res) {
-  res.sendFile(path.join(__dirname, './build/index.html'));
+  res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
 // SERVER LISTEN
