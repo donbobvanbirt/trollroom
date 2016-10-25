@@ -6,7 +6,7 @@ import Layout from './components/Layout'
 import RoomList from './components/RoomList'
 import Room from './components/Room'
 import NewRoom from './components/NewRoom'
-// import Clients from './components/Clients'
+import './socket-init'
 
 render(
   <Router history ={browserHistory}>

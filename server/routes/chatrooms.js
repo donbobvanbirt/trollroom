@@ -14,8 +14,20 @@ router.route('/message/:id')
       // console.log('chatroom.messages', chatroom.messages);
       return chatroom.save();
     })
-    .then(savedMessage => {
-      res.send(savedMessage)
+    .then(() => {
+      // res.send(savedMessage)
+    // })
+    // .then(() => {
+      return Chatroom.find({});
+    })
+    .then((chatRooms) => {
+      // res.io.emit('chatRooms', {
+      //   type: 'NEW_DATA',
+      //   payload: { chatRooms }
+      // })
+      res.socketEmitter('chatRooms', chatRooms)
+      // console.log('chatRooms', chatRooms)
+      res.send()
     })
     .catch(err => {
       res.status(400).send(err)
